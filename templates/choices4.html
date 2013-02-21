@@ -1,0 +1,41 @@
+{% if choices %}
+
+Choices Are:
+
+<ul>
+    {% for choice in choices %}
+    <li>
+    Title: {{choice.title}} <br />
+    Votes: {{choice.votes}} <br />
+    <a href="/choice/{{choice._id}}/delete">Delete</a>
+    <a href="/choice/{{choice._id}}/upvote">Upvote</a>
+    <a href="/choice/{{choice._id}}/downvote">Downvote</a>
+    </li>
+    {% endfor %}
+</ul>
+
+<a href="/reset-choices">Reset Choices</a>
+
+<br />
+Or... Add Another
+
+<form action="/add-choice" method="POST">
+    <label for="title">Title: </label>
+    <input type="TEXT" name="title" />
+
+    <br />
+    <input type="SUBMIT" name="Submit" />
+</form>
+{% else %}
+
+No Choices Yet... Add One
+
+<form action="/add-choice" method="POST">
+    <label for="title">Title: </label>
+    <input type="TEXT" name="title" />
+
+    <br />
+    <input type="SUBMIT" name="Submit" />
+</form>
+
+{% endif %}
