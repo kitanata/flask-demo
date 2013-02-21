@@ -1,0 +1,25 @@
+{% if choices %}
+
+Choices Are:
+
+<ul>
+    {% for choice in choices %}
+        <li>
+            {{choice.title}}
+        </li>
+    {% endfor %}
+</ul>
+
+{% else %}
+
+No Choices Yet... Add One
+
+<form action="/add-choice" method="POST">
+    <label for="title">Title: </label>
+    <input type="TEXT" name="title" />
+
+    <br />
+    <input type="SUBMIT" name="Submit" />
+</form>
+
+{% endif %}
